@@ -12,21 +12,36 @@
 #             a_list.append(a_list_copy[i])
 # print(a_list)
 
+# count = int(input())
+# sum = 0
+# for j in range(count):
+#     enter = input()
+#     enter_list = []
+#     enter_list_copy = list(enter)
+#     for i in range(len(enter_list_copy)):
+#         if i == len(enter_list_copy) - 1:
+#             enter_list.append(enter_list_copy[i])
+#         else:
+#             if enter_list_copy[i] != enter_list_copy[i + 1]:
+#                 enter_list.append(enter_list_copy[i])
+#
+#     enter_list_set = list(set(enter_list))
+#     if len(enter_list) == len(enter_list_set):
+#         sum += 1
+#
+# print(sum)
+
+# 로직 개선, pass, in 연산자 사용
 count = int(input())
-sum = 0
-for j in range(count):
-    enter = input()
-    enter_list = []
-    enter_list_copy = list(enter)
-    for i in range(len(enter_list_copy)):
-        if i == len(enter_list_copy) - 1:
-            enter_list.append(enter_list_copy[i])
+answer = 0
+for i in range(count):
+    word = input()
+    for n in range(len(word)):
+        if n != len(word) - 1:
+            if word[n] == word[n+1]:
+                pass
+            elif word[n] in word[n+1:]:
+                break
         else:
-            if enter_list_copy[i] != enter_list_copy[i + 1]:
-                enter_list.append(enter_list_copy[i])
-
-    enter_list_set = list(set(enter_list))
-    if len(enter_list) == len(enter_list_set):
-        sum += 1
-
-print(sum)
+            answer += 1
+print(answer)
